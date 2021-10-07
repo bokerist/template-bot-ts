@@ -1,6 +1,6 @@
 "use strict";
 
-const player = require("./player");
+const { Player } = require("./player");
 
 const express = require("express");
 const http = require("http");
@@ -16,11 +16,11 @@ app.get("/", function (_, res) {
 });
 
 app.get("/version", function (_, res) {
-  res.status(200).send(player.getVersion());
+  res.status(200).send(Player.getVersion());
 });
 
 app.post("/bet", function (req, res) {
-  res.status(200).send(player.bet(req.body).toString());
+  res.status(200).send(Player.bet(req.body).toString());
 });
 
 const port = process.env.PORT || 1337;
